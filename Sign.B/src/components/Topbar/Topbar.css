@@ -3,105 +3,98 @@
   justify-content: space-between;
   align-items: center;
   padding: 1px;
-  width: 99%;
-  height: 50px;
-  top: 0;
-  z-index: 999;
-  position: fixed; 
+  width: 100%;
+  height: 60px;
+  position: fixed;
   box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 10);
 }
 
-/* 다크모드에 따른 네비바 배경 색상 */
-.light-mode .topbar {
-  background-color: #F1F1F1;
+/* 검색창 css */
+.Header_search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
 }
 
-.dark-mode .topbar {
-  background-color: #2C2D33;
+.Header_search .searchInput {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  width: 500px;
+  border-radius: 20px 0 0 20px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  box-shadow: none; /* 검색창에 그림자 제거 */
 }
 
-/* -----------------네비바 css----------------- */
+.Header_search .searchInput input {
+  color: var(--text-color);
+  width: 450px;
+}
+
+.Header_search .searchInput:focus-within {
+  border: 1px solid #1C62B9;
+  
+}
+
+.Header_search .searchInput .MuiSvgIcon-root {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* 검색버튼 css */
+.Header_search button {
+  border-radius: 0 20px 20px 0;
+  border: 1px solid var(--border-color);
+  padding: 9px 10px; /* 버튼 내부 패딩 수정 */
+  background-color: var(--button-background-color); /* 배경색 지정 */
+  color: var(--text-color); /* 글자색 지정 */
+  cursor: pointer; /* 커서 스타일 지정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 네비바 아이템 css */
 .Header_logo img {
-  margin-right: 0px;
-  margin-top:5px;
+  margin-top: 3px;
   height: 40px;
   object-fit: contain;
-  margin-left: 10px;
+  margin-left: 70px;
 }
 
-/* 네비바 글씨 */
-.Header_followtext {
+.Header_menu {
   position: absolute;
-  top: -6px;
-  left: 90px;
   display: flex;
+  top: 10px;
+  left: 10px;
   align-items: center;
 }
 
-.Header_findtext {
-  position: absolute;
-  top: -6px;
-  left: 170px;
-  display: flex;
-  align-items: center;
-}
-
-/* 다크모드 네비바 글씨 색상 */
-.light-mode .Header_followtext,
-.light-mode .Header_findtext {
-  color: #551A8B;
-}
-
-.dark-mode .Header_followtext,
-.dark-mode .Header_findtext {
-  color: #F1F1F1;
-}
-
-/* 마우스를 올렸을 때 반응 */
-.Header_followtext:hover {
-  color: #c98aff;
-  cursor: pointer;
-}
-
-.Header_findtext:hover {
-  color: #c98aff;
-  cursor: pointer;
-}
-
-
-/* -----------------아이콘 css----------------- */
 .Header_dark {
   position: absolute;
   display: flex;
-  top: 5px;
-  right: 110px;
+  top: 10px;
+  right: 115px;
   align-items: center;
 }
 
 .Header_noticeicon {
   position: absolute;
   display: flex;
-  top: 5px;
-  right: 60px;
+  top: 10px;
+  right: 65px;
   align-items: center;
 }
 
 .Header_ava {
   position: absolute;
   display: flex;
-  top: 5px;
-  right: 10px;
+  top: 10px;
+  right: 15px;
   align-items: center;
-}
-
-.Header_input {
-  justify-content: center;
-  display: flex;
-  position: absolute;
-  top: 5px;
-  margin-left: 37%;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  height: 20%;
 }

@@ -1,40 +1,47 @@
-import React, { useState, useEffect } from "react";
-import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme, GlobalStyle } from "./../../utils/Theme.js";  
-import { Avatar, IconButton } from "@mui/material";
-import { Nightlight, WbSunny, NotificationsOutlined } from "@mui/icons-material";
-import "./Topbar.css";
+import React, { useState } from 'react';
+import { Avatar, IconButton, InputBase, Paper } from '@mui/material';
+import { Nightlight, WbSunny, NotificationsOutlined, Search } from '@mui/icons-material';
+import MenuIcon from '@mui/icons-material/Menu';
+import './Topbar.css';
+import Logo from './../../assets/images/Twitch-Logo.png';
 
-const twitchLogoSrc =
-  "https://www.pngplay.com/wp-content/uploads/12/Twitch-Logo-Transparent-Image.png";
+function Topbar({ toggleDarkMode, darkMode }) {
+  const [searchQuery, setSearchQuery] = useState('');
 
-function Topbar() {
-  const [darkMode, setDarkMode] = useState(true);
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
 
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add('dark-mode');
-      document.body.classList.remove('light-mode');
-    } else {
-      document.body.classList.add('light-mode');
-      document.body.classList.remove('dark-mode');
-    }
-  }, [darkMode]);
-
-  const toggleDarkMode = () => setDarkMode((prevDarkMode) => !prevDarkMode);
+  const handleSearch = () => {
+    // 여기에서 검색 기능을 구현하세요.
+    console.log('Searching for:', searchQuery);
+  };
 
   return (
     <div className="topbar">
+      <div className="Header_menu">
+        <IconButton color="primary">
+          <MenuIcon />
+        </IconButton>
+      </div>
+
       <div className="Header_logo">
-        <img src={twitchLogoSrc} alt="" />
+        <img src={Logo} alt="Logo" />
       </div>
 
-      <div className="Header_followtext">
-        <h4>팔로잉</h4>
-      </div>
-
-      <div className="Header_findtext">
-        <h4>탐색</h4>
+      <div className="Header_search">
+        <Paper component="form" className="searchInput">
+          <Search />
+          <InputBase
+            placeholder="검색"
+            inputProps={{ 'aria-label': 'search' }}
+            value={searchQuery}
+            onChange={handleSearchInputChange}
+          />
+        </Paper>
+        <button type="submit" aria-label="search" onClick={handleSearch}>
+          <Search />
+        </button>
       </div>
 
       <div className="Header_noticeicon">
@@ -47,15 +54,11 @@ function Topbar() {
         <Avatar />
       </div>
 
-      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-        <GlobalStyle />
-        <div className="Header_dark">
-          <IconButton onClick={toggleDarkMode} color="primary">
-            {darkMode ? <Nightlight /> : <WbSunny />}
-          </IconButton>
-        </div>
-      </ThemeProvider>
-
+      <div className="Header_dark">
+        <IconButton onClick={toggleDarkMode} color="primary">
+          {darkMode ? <Nightlight /> : <WbSunny />}
+        </IconButton>
+      </div>
     </div>
   );
 }
