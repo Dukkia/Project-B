@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Avatar, IconButton, InputBase, Paper } from '@mui/material';
 import { Nightlight, WbSunny, NotificationsOutlined, Search } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom'; // Link를 불러옵니다.
 import './Topbar.css';
 import Logo from './../../assets/images/Twitch-Logo.png';
 
@@ -26,7 +27,9 @@ function Topbar({ toggleDarkMode, darkMode }) {
       </div>
 
       <div className="Header_logo">
-        <img src={Logo} alt="Logo" />
+        <Link to={'/'}>
+          <img src={Logo} alt="Logo" />
+        </Link>
       </div>
 
       <div className="Header_search">
