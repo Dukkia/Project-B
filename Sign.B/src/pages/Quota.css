@@ -1,0 +1,26 @@
+.quota-container {
+  max-width: 600px;
+  position: fixed;
+  top: 100px;
+  left: 30%;
+  right: 30%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.quota-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.quota-list li {
+  margin-bottom: 10px;
+}
+
+.quota-list li strong {
+  margin-right: 5px;
+  font-weight: bold;
+}

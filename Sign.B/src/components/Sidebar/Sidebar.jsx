@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import './Sidebar.css'; // 스타일 파일을 불러옵니다.
-import { IconButton } from '@mui/material'; // IconButton을 불러옵니다.
-import MenuIcon from '@mui/icons-material/Menu'; // Menu 아이콘을 명시적으로 가져옵니다.
-import HomeIcon from '@mui/icons-material/Home'; // Home 아이콘을 명시적으로 가져옵니다.
+import './Sidebar.css';
+import { IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import VideoLibraryOutlinedIcon from '@mui/icons-material/VideoLibraryOutlined';
 import VerticalAlignBottomSharpIcon from '@mui/icons-material/VerticalAlignBottomSharp';
-import Sidepopup from './Sidepopup'; // Sidepopup 컴포넌트를 불러옵니다.
+import Sidepop from './Sidepop'; // Sidepopup 컴포넌트를 불러옵니다.
+import { Link } from 'react-router-dom'; // React Router의 Link import
 
 function Sidebar() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -24,28 +25,28 @@ function Sidebar() {
           </IconButton>
         </div>
 
-        <button className="sidebar-button">
+        <Link to="/" className="sidebar-button">
           <span className="icon"><HomeIcon /></span>
-          <span className="text">홈</span>
-        </button>
+          <span className="icon-text">홈</span>
+        </Link>
 
         <button className="sidebar-button">
           <span className="icon"><SubscriptionsIcon /></span>
-          <span className="text">구독</span>
+          <span className="icon-text">구독</span>
         </button>
 
         <button className="sidebar-button">
           <span className="icon"><VideoLibraryOutlinedIcon /></span>
-          <span className="text">나</span>
+          <span className="icon-text">나</span>
         </button>
 
         <button className="sidebar-button">
           <span className="icon"><VerticalAlignBottomSharpIcon /></span>
-          <span className="text">다운로드</span>
+          <span className="icon-text">다운로드</span>
         </button>
       </div>
 
-      {isPopupOpen && <Sidepopup isOpen={isPopupOpen} togglePopup={togglePopup} />}
+      {isPopupOpen && <Sidepop isOpen={isPopupOpen} togglePopup={togglePopup} />}
     </div>
   );
 }
