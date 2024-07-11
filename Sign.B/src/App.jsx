@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Topbar/Topbar.jsx';
 import Sidebar from './components/Sidebar/Sidebar';
 import Quota from './pages/Quota.jsx'
+import EyeAnimation from './pages/EyeAnimation';
+
 import './assets/styles/App.css';
 
 function App() {
@@ -26,7 +28,7 @@ function App() {
         <Sidebar />
         <Navbar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
         <Routes>
-          <Route path="/"/>
+          <Route path="/" element={<EyeAnimation />}/>
           <Route path="/quota" element={<Quota />} />
         </Routes>
       </BrowserRouter>
